@@ -44,7 +44,7 @@ body{
     line-height: 1.2;
 }
 
-#generate-btn{
+.generate-btn{
     background-color: #83a8df;
     border: none;
     border-radius: 2rem;
