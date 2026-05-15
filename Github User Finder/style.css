@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Poppins,sans-serif;
+    background-color: #FFF1D3;
+    color: #5D1C6A;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-width: 100vw;
+    margin-top: 20px;
+    padding: 0 16px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+p{
+    color: #CA5995;
+}
+
+.search-box{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.search{
+    width:100%;
+    height: 30px;
+    background-color: #FFB090;
+    border-radius: 20px;
+    padding: 10px ;
+    color: #5D1C6A;
+    margin-right: 10px;
+
+}
+
+.search-btn,button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFB090;
+    color: #5D1C6A;
+    padding: 10px ;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.profile-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #5D1C6A;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+
+
+.user-profile{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.user-profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#user-name{
+    font-size: 10px;
+    color: #FFF1D3;
+}
+
+.user-account-details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.user-following,.user-other-accounts{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 600px){
+    body{
+        align-items: flex-start;
+        margin-top: 16px;
+    }
+
+    .heading-box{
+        text-align: center;
+    }
+
+    .heading-box h1{
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .search-box{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search{
+        margin-right: 0;
+    }
+
+    .search-btn,button{
+        width: 100%;
+    }
+
+    .profile-box{
+        padding: 16px;
+    }
+
+    .user-profile{
+        width: 100%;
+    }
+
+    .user-following,.user-other-accounts{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 380px){
+    .heading-box h1{
+        font-size: 24px;
+    }
+
+    .user-profile{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .user-details{
+        align-items: center;
+    }
+}
