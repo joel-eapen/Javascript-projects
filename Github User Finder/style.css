@@ -232,7 +232,9 @@ button:focus-visible {
     border-radius: 8px;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
 }
-
+#repo-title{
+    color: var(--light);
+}
 .repo-name {
     display: inline-flex;
     align-items: center;

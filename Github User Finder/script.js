@@ -13,7 +13,7 @@ async function searchUser() {
     if (!username) return alert('Please enter a username');
 
     try {
-        const response = await fetch(`https://api.github.com/users/${username}`,{
+        const response = await fetch(`https://api.github.com/users/${username}`, {
             headers: {
                 Authorization: "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"
             }
@@ -69,9 +69,9 @@ function displayUserData(user) {
     document.querySelector('.profile-box').innerHTML = detailsHTML;
 }
 
-async function fetchRepos(reposURL){
+async function fetchRepos(reposURL) {
     try {
-        const response = await fetch(reposURL,{
+        const response = await fetch(reposURL, {
             headers: {
                 Authorization: "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"
             }
@@ -84,23 +84,30 @@ async function fetchRepos(reposURL){
     }
 }
 
-function displayRepos(repos){
+function displayRepos(repos) {
+    document.getElementById('repo-title').classList.remove('hidden');
+    if (repos.length === 0) {
+        document.getElementById('repo-title').classList.remove('hidden');
+        document.querySelector('.user-repo').classList.remove('hidden');
+        reposContainer.innerHTML = '<p>No repositories found.</p>';
+        return;
+    }
     let reposHTML = '';
 
-    repos.forEach((repo)=>{
+    repos.forEach((repo) => {
         document.querySelector('.user-repo').classList.remove('hidden');
-        reposHTML += 
-        `<article class="repo-card">
+        reposHTML +=
+            `<article class="repo-card">
             <a href="#" class="repo-name">
                 <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
                 ${repo.name}
             </a>
-            <p class="repo-description">No description available</p>
+            <p class="repo-description">${repo.description || 'No description available'}</p>
             <div class="repo-meta">
-                <span><i class="fa-solid fa-circle repo-language-dot" aria-hidden="true"></i> JavaScript</span>
-                <span><i class="fa-solid fa-star" aria-hidden="true"></i> 8</span>
-                <span><i class="fa-solid fa-code-fork" aria-hidden="true"></i> 0</span>
-                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Nov 19, 2024</span>
+                <span><i class="fa-solid fa-circle repo-language-dot" aria-hidden="true"></i> ${repo.language}</span>
+                <span><i class="fa-solid fa-star" aria-hidden="true"></i> ${repo.stargazers_count}</span>
+                <span><i class="fa-solid fa-code-fork" aria-hidden="true"></i> ${repo.forks_count}</span>
+                <span><i class="fa-regular fa-clock" aria-hidden="true"></i> ${dateFormat(new Date(repo.updated_at))}</span>
             </div>
         </article>
         `
@@ -111,4 +118,14 @@ function displayRepos(repos){
 function showError() {
     document.getElementById('error-container').classList.remove('hidden');
     document.querySelector('.profile-box').classList.add('hidden');
+    document.querySelector('.user-repo').classList.add('hidden');
+}
+
+function dateFormat(date) {
+    const formatted = date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+    });
+    return formatted;
 }
