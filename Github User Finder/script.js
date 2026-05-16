@@ -73,7 +73,7 @@ async function fetchRepos(reposURL) {
     try {
         const response = await fetch(reposURL, {
             headers: {
-                Authorization: "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"
+                Authorization: ""
             }
         });
         if (!response.ok) throw new Error('Failed to fetch repositories');
