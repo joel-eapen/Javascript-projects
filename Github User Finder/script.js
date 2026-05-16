@@ -13,11 +13,7 @@ async function searchUser() {
     if (!username) return alert('Please enter a username');
 
     try {
-        const response = await fetch(`https://api.github.com/users/${username}`, {
-            headers: {
-                Authorization: "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"
-            }
-        });
+        const response = await fetch(`https://api.github.com/users/${username}`);
         if (!response.ok) throw new Error('User not found');
         const userData = await response.json();
         displayUserData(userData);
@@ -71,11 +67,7 @@ function displayUserData(user) {
 
 async function fetchRepos(reposURL) {
     try {
-        const response = await fetch(reposURL, {
-            headers: {
-                Authorization: ""
-            }
-        });
+        const response = await fetch(reposURL);
         if (!response.ok) throw new Error('Failed to fetch repositories');
         const repos = await response.json();
         displayRepos(repos);
