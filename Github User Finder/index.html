@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github User Finder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
 
@@ -21,41 +25,19 @@
             <button class="search-btn">Search</button>
         </div>
 
-        <div class="profile-box">
-            <div class="user-profile">
-                <div class="user-image">
-                    <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0=" alt="">
-                </div>
-                <div class="user-details">
-                    <p>Name</p>
-                    <p id="user-name">@username</p>
-                    <p>Bio</p>
-                    <p>View Profile</p>
-                </div>
+
+
+            <div class="profile-box"></div>
+            <div class="user-repo hidden" aria-labelledby="repo-title">
+                        <h2 id="repo-title" class="repo-section-title">Latest Repositories</h2>
+                        <div id="repos-container" class="repos-container">
+                        </div>
             </div>
-
-
-                <div class="user-account-details">
-                    <div class="user-following">
-                        <button>Follower </button>
-                        <button>Following</button>
-                        <button>Repositories</button>
-                    </div>
-
-                    <div class="user-other-accounts">
-                        <p>Place</p>
-                        <p>Portfolio</p>
-                        <p>Twitter</p>
-                    </div>
-
-                    <div class="user-repo">
-                        <p>Latest Repositories</p>
-                    </div>
-                </div>
-
-
+            <div id="error-container" class="hidden">
+                <p>No user found. Try another username</p>
+            </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
+
 </html>

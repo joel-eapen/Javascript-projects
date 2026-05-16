@@ -2,6 +2,20 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg: #eef2f7;
+    --surface: #ffffff;
+    --text: #172033;
+    --muted: #64748b;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-soft: #dbeafe;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --border: #d9e2ef;
+    --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,7 +23,10 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
-    background-color: antiquewhite;
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 32%),
+        linear-gradient(135deg, #f8fafc 0%, var(--bg) 100%);
+    color: var(--text);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -18,27 +35,43 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--surface);
     width: 100%;
     max-width: 600px;
-    min-height: 200px;
-    border-radius: 10px;
-    padding: 20px;
+    min-height: 240px;
+    border: 1px solid rgba(217, 226, 239, 0.8);
+    border-radius: 18px;
+    padding: clamp(20px, 4vw, 32px);
+    box-shadow: var(--shadow);
 }
 
 .screen {
     display: none;
 }
 
+button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
 
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.24);
+    outline-offset: 3px;
+}
 
 #start-btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
-    background-color: orangered;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
     cursor: pointer;
 }
 
@@ -48,7 +81,6 @@ body {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
 }
 
@@ -61,10 +93,13 @@ body {
 .quiz-heading h1,
 .quiz-header h2 {
     margin-top: 0;
+    color: var(--text);
+    line-height: 1.2;
 }
 
 .quiz-decription p {
     margin-top: 0;
+    color: var(--muted);
 }
 
 .quiz-header {
@@ -80,6 +115,11 @@ body {
     justify-content: space-between;
     gap: 16px;
     width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: #f8fafc;
+    color: var(--muted);
 }
 
 .quiz-info p {
@@ -92,19 +132,24 @@ body {
 }
 
 .btn-style {
-    font-family: 'poppins', sans-serif;
     width: 100%;
     padding: 15px;
     margin: 10px 0;
-    border-radius: 10px;
-    border: 3px solid transparent;
+    border-radius: 12px;
+    border: 1px solid var(--border);
     text-align: left;
     font-size: 16px;
-    background-color: orangered;
-    color: white;
+    background-color: #f8fafc;
+    color: var(--text);
     cursor: pointer;
     line-height: 1.4;
     overflow-wrap: anywhere;
+}
+
+.btn-style:hover {
+    border-color: rgba(37, 99, 235, 0.48);
+    background-color: var(--primary-soft);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
 }
 
 .progress-bar {
@@ -112,7 +157,7 @@ body {
     height: 10px;
     margin-top: 14px;
     border-radius: 999px;
-    background-color: #f1d4ca;
+    background-color: #e2e8f0;
     overflow: hidden;
 }
 
@@ -120,36 +165,35 @@ body {
     width: 0;
     height: 100%;
     border-radius: inherit;
-    background-color: orangered;
+    background: linear-gradient(90deg, var(--primary), #38bdf8);
     transition: width 0.3s ease;
 }
 
 .btn-style.correct {
-    border-color: green;
+    border-color: var(--success);
+    background-color: #dcfce7;
 }
 
 .btn-style.incorrect {
-    border-color: black;
+    border-color: var(--danger);
+    background-color: #fee2e2;
 }
 
-
 #restart-btn {
-    font-family: 'poppins', sans-serif;
     width: 100%;
-    padding: 15px;
+    padding: 14px 18px;
     margin: 10px 0;
-    border-radius: 10px;
-    border: 3px solid transparent;
-    text-align: left;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
     font-size: 16px;
-    background-color: orangered;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     cursor: pointer;
     line-height: 1.4;
     overflow-wrap: anywhere;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
 }
-
-/* Responsive Design Code*/
 
 @media (max-width: 480px) {
     body {
@@ -159,7 +203,7 @@ body {
 
     .container {
         padding: 16px;
-        border-radius: 8px;
+        border-radius: 14px;
     }
 
     .quiz-heading h1 {
